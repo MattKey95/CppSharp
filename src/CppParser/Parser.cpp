@@ -3732,7 +3732,7 @@ AST::ExpressionObsolete* Parser::WalkVariableInitializerExpression(const clang::
       return WalkExpressionObsolete(Expr);
 
     clang::Expr::EvalResult result;
-    if (Expr->EvaluateAsConstantExpr(result, clang::Expr::ConstExprUsage::EvaluateForCodeGen, c->getASTContext(), false))
+    if (Expr->EvaluateAsConstantExpr(result, c->getASTContext()))
     {
         std::string s;
         llvm::raw_string_ostream out(s);

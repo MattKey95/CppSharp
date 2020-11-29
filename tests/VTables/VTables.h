@@ -9,10 +9,6 @@ public:
 
     };
 
-    // HACK: don't delete this - its external symbols linked by lld crash on Unix
-    // https://bugs.llvm.org/show_bug.cgi?id=48325
-    Foo();
-    ~Foo();
     virtual int vfoo();
     virtual int vbar();
 
@@ -39,8 +35,5 @@ public:
 class DLL_API DerivedClassVirtual : public BaseClassVirtual
 {
 public:
-    // HACK: don't delete this - its external symbols linked by lld crash on Unix
-    // https://bugs.llvm.org/show_bug.cgi?id=48325
-    DerivedClassVirtual();
     virtual int retInt() override;
 };
